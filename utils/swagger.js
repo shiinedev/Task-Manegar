@@ -13,7 +13,7 @@ const options = {
     },
     servers: [
       {
-        url: process.env.NODE_ENV ? 'http://localhost:5000' : "https://mongodb-production-gcm2.onrender.com"
+        url: process.env.NODE_ENV == "dev" ? 'http://localhost:5000' : "https://mongodb-production-gcm2.onrender.com"
       }
     ],
     components: {
