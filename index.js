@@ -20,10 +20,10 @@ app.use(helmet())
 app.use(express.json());
 
 app.use(cors({
-    origin:["http://localhost:5000/"]
+    origin:["http://localhost:5000/","https://mongodb-production-gcm2.onrender.com"]
 }))
 // app.use(logger)
-if(process.env.NODE_ENV == "dev"){
+if(process.env.NODE_ENV == "development"){
     app.use(morgan("dev"))
 }
 
@@ -47,7 +47,7 @@ app.use("/tasks",taskRoutes)
 app.use(notFound)
 app.use(errorHandler)
 
-mongoose.connect(process.env.NODE_ENV == "dev"? process.env.MONGO_URI_DEV : process.env.MONGO_URI_PRO)
+mongoose.connect(process.env.NODE_ENV == "development"? process.env.MONGO_URI_DEV : process.env.MONGO_URI_PRO)
 .then(()=> console.log("✅ mongoDb is connected to locally"))
 .catch((err) => console.log("❌ connection error",err))
 
