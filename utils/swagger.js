@@ -1,4 +1,7 @@
 import swaggerJSDoc from 'swagger-jsdoc';
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 const options = {
   definition: {
@@ -10,7 +13,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:5000'
+        url: process.env.NODE_ENV ? 'http://localhost:5000' : "https://mongodb-production-gcm2.onrender.com"
       }
     ],
     components: {
