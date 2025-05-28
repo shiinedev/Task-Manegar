@@ -47,7 +47,7 @@ app.use("/tasks",taskRoutes)
 app.use(notFound)
 app.use(errorHandler)
 
-mongoose.connect(process.env.NODE_ENV == "dev"? process.env.MONGO_URI_DEV : process.env.PRO)
+mongoose.connect(process.env.NODE_ENV == "dev"? process.env.MONGO_URI_DEV : process.env.MONGO_URI_PRO)
 .then(()=> console.log("✅ mongoDb is connected to locally"))
 .catch((err) => console.log("❌ connection error",err))
 
