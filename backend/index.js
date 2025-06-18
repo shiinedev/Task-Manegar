@@ -48,8 +48,9 @@ app.use("/api/upload",uploadRoutes)
 app.use("/api/tasks",taskRoutes)
 
 // frontend production
-if(process.env.NODE_ENV == "pro") {
-    const __dirname = path.fileURLToPath(import.meta.url);
+if(process.env.NODE_ENV === "pro") {
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 
